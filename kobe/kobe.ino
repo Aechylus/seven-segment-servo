@@ -10,7 +10,7 @@ Servo servoList[NUM_SERVO];
 
 const int servoPins[NUM_SERVO] = {0, 0, 0, 0, 0, 0, 0};
 
-const int SERVO_PATTERN_LEN = 11;
+const int SERVO_PATTERN_LEN = 15;
 const int servoPattern[SERVO_PATTERN_LEN][NUM_SERVO] = {
     {1, 1, 1, 0, 1, 1, 1},
     {0, 0, 1, 0, 0, 1, 0},
@@ -23,20 +23,23 @@ const int servoPattern[SERVO_PATTERN_LEN][NUM_SERVO] = {
     {1, 1, 1, 1, 1, 1, 1},
     {1, 1, 1, 1, 0, 1, 0},
     {0, 0, 0, 0, 0, 0, 0},
-};
+    {1, 1, 1, 1, 1, 1, 0},
+    {1, 1, 1, 1, 1, 1, 1},
+    {1, 1, 0, 0, 1, 0, 1},
+    {1, 1, 1, 0, 1, 1, 1}};
 
 /* KEYPAD PART */
 const byte ROWS = 4;
-const byte COLS = 3;
+const byte COLS = 4;
 
 const char keypadPattern[ROWS][COLS] = {
-    {'1', '2', '3'},
-    {'4', '5', '6'},
-    {'7', '8', '9'},
-    {'*', '0', '#'}};
+    {'1', '2', '3', 'A'},
+    {'4', '5', '6', 'B'},
+    {'7', '8', '9', 'C'},
+    {'*', '0', '#', 'D'}};
 
-const byte rowPins[ROWS] = {9, 8, 7, 6};
-const byte colPins[COLS] = {5, 4, 3};
+const byte rowPins[ROWS] = {5, 4, 3, 2};
+const byte colPins[COLS] = {A0, A1, A2, A3};
 
 Keypad keypad = Keypad(makeKeymap(keypadPattern), rowPins, colPins, ROWS, COLS);
 
@@ -57,6 +60,7 @@ void loop()
     char currKey = keypad.getKey();
     if (currKey)
     {
+        Serial.write(currKey);
         if (currKey == '#')
         {
             tick();
@@ -107,6 +111,14 @@ int getServoIndex(char currKey)
         return 9;
     case '*':
         return 10;
+    case 'A':
+        return 11;
+    case 'B':
+        return 12;
+    case 'C':
+        return 13;
+    case 'D':
+        return 14;
     }
 }
 
