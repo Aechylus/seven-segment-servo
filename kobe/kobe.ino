@@ -8,7 +8,7 @@ const int MAX_ANGLE = 160;
 const int NUM_SERVO = 7;
 Servo servoList[NUM_SERVO];
 
-const int servoPins[NUM_SERVO] = {0, 0, 0, 0, 0, 0, 0};
+const int servoPins[NUM_SERVO] = {13, 12, 11, 10, 9, 8, 7};
 
 const int SERVO_PATTERN_LEN = 15;
 const int servoPattern[SERVO_PATTERN_LEN][NUM_SERVO] = {
