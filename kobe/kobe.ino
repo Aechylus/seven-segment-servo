@@ -79,6 +79,7 @@ void tick()
     {
         counter++;
         displayDigit(counter % 10);
+        delay(1000);
 
         currKey = keypad.getKey();
     }
