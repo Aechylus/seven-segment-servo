@@ -6,11 +6,11 @@ const int MIN_ANGLE = 80;
 const int MAX_ANGLE = 160;
 
 const int NUM_SERVO = 7;
-const int SERVO_PATTERN_LEN = 14;
 Servo servoList[NUM_SERVO];
 
 const int servoPins[NUM_SERVO] = {0, 0, 0, 0, 0, 0, 0};
 
+const int SERVO_PATTERN_LEN = 11;
 const int servoPattern[SERVO_PATTERN_LEN][NUM_SERVO] = {
     {1, 1, 1, 0, 1, 1, 1},
     {0, 0, 1, 0, 0, 1, 0},
@@ -57,18 +57,28 @@ void loop()
     char currKey = keypad.getKey();
     if (currKey)
     {
-        displayDigit(getServoIndex(currKey));
+        if (currKey == '#')
+        {
+            tick();
+        }
+        else
+        {
+            displayDigit(getServoIndex(currKey));
+        }
     }
-
-    // tick();
 }
 
-long counter = 0;
 void tick()
 {
-    counter++;
-    displayDigit(counter % 10);
-    delay(1000);
+    int counter = 0;
+    char currKey = 0;
+    while (!currKey)
+    {
+        counter++;
+        displayDigit(counter % 10);
+
+        currKey = keypad.getKey()
+    }
 }
 
 int getServoIndex(char currKey)
