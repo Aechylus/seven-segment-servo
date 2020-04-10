@@ -77,7 +77,7 @@ void tick()
         counter++;
         displayDigit(counter % 10);
 
-        currKey = keypad.getKey()
+        currKey = keypad.getKey();
     }
 }
 
