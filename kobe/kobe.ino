@@ -6,7 +6,7 @@ const int MIN_ANGLE = 80;
 const int MAX_ANGLE = 160;
 
 const int NUM_SERVO = 7;
-Servo servoList[NUM_SERVO];
+Servo servoList[5];
 
 const int servoPins[NUM_SERVO] = {13, 12, 11, 10, 9, 8, 7};
 
