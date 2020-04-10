@@ -22,24 +22,21 @@ const int servoPattern[SERVO_PATTERN_LEN][NUM_SERVO] = {
     {1, 0, 1, 0, 0, 1, 1},
     {1, 1, 1, 1, 1, 1, 1},
     {1, 1, 1, 1, 0, 1, 0},
-    {1, 1, 1, 1, 1, 1, 0},
-    {1, 1, 1, 1, 1, 1, 1},
-    {1, 1, 0, 0, 1, 0, 1},
-    {1, 1, 1, 0, 1, 1, 1},
+    {0, 0, 0, 0, 0, 0, 0},
 };
 
 /* KEYPAD PART */
 const byte ROWS = 4;
-const byte COLS = 4;
+const byte COLS = 3;
 
 const char keypadPattern[ROWS][COLS] = {
-    {'1', '2', '3', 'A'},
-    {'4', '5', '6', 'B'},
-    {'7', '8', '9', 'C'},
-    {'*', '0', '#', 'D'}};
+    {'1', '2', '3'},
+    {'4', '5', '6'},
+    {'7', '8', '9'},
+    {'*', '0', '#'}};
 
 const byte rowPins[ROWS] = {9, 8, 7, 6};
-const byte colPins[COLS] = {5, 4, 3, 2};
+const byte colPins[COLS] = {5, 4, 3};
 
 Keypad keypad = Keypad(makeKeymap(keypadPattern), rowPins, colPins, ROWS, COLS);
 
@@ -98,14 +95,8 @@ int getServoIndex(char currKey)
         return 8;
     case '9':
         return 9;
-    case 'A':
+    case '*':
         return 10;
-    case 'B':
-        return 11;
-    case 'C':
-        return 12;
-    case 'D':
-        return 13;
     }
 }
 
