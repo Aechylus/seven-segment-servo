@@ -19,9 +19,9 @@ const int servoPattern[SERVO_PATTERN_LEN][NUM_SERVO] = {
     {0, 1, 1, 1, 0, 1, 0},
     {1, 1, 0, 1, 0, 1, 1},
     {1, 1, 0, 1, 1, 1, 1},
-    {1, 0, 1, 0, 0, 1, 1},
+    {1, 0, 1, 0, 0, 1, 0},
     {1, 1, 1, 1, 1, 1, 1},
-    {1, 1, 1, 1, 0, 1, 0},
+    {1, 1, 1, 1, 0, 1, 1},
     {0, 0, 0, 0, 0, 0, 0},
     {1, 1, 1, 1, 1, 1, 0},
     {1, 1, 1, 1, 1, 1, 1},
@@ -60,7 +60,6 @@ void loop()
     char currKey = keypad.getKey();
     if (currKey)
     {
-        Serial.write(currKey);
         if (currKey == '#')
         {
             tick();
