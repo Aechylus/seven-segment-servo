@@ -130,6 +130,6 @@ void displayDigit(int index)
 
     for (int i = 0; i < NUM_SERVO; i++)
     {
-        servoList[i].write(((MAX_ANGLE - MIN_ANGLE) * servoPattern[index][i]) + MIN_ANGLE);
+        servoList[i].write(MAX_ANGLE - ((MAX_ANGLE - MIN_ANGLE) * servoPattern[index][i]));
     }
 }
