@@ -62,12 +62,21 @@ void loop()
     {
         if (currKey == '#')
         {
-            tick();
+            countdown();
         }
         else
         {
             displayDigit(getServoIndex(currKey));
         }
+    }
+}
+
+void countdown()
+{
+    for (int i = 9; i >= 0; i--)
+    {
+        displayDigit(i);
+        delay(1000);
     }
 }
 
